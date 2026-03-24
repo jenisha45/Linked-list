@@ -63,7 +63,7 @@ public class Singlydemo {
 		Node current= head;
 		head= head.next;
 		current.next=null;
-		if(isEmpty())
+		if(isEmpty())//after deleting this check whether only link list is left or not
 		{
 			tail=null;
 		}
