@@ -1,4 +1,5 @@
 package Singly;
+import java.util.Scanner;
 public class Singlydemo {
 	class Node
 	{
@@ -141,11 +142,77 @@ public class Singlydemo {
 		}
 		System.out.println();
 	}
-	public static void main(String[] args) {
-		Singlydemo li= new Singlydemo();
-		li.addFirst(20);
-		System.out.println("after adding 20 at first=");
-		li.print();
-	}
+	
 
+public static void main(String[] args) {
+    Singlydemo li = new Singlydemo();
+    Scanner sc = new Scanner(System.in);
+
+    while (true) {
+        System.out.println("\n--- MENU ---");
+        System.out.println("1. Add First");
+        System.out.println("2. Add Last");
+        System.out.println("3. Add at Position");
+        System.out.println("4. Delete First");
+        System.out.println("5. Delete Last");
+        System.out.println("6. Delete at Position");
+        System.out.println("7. Search");
+        System.out.println("8. Print");
+        System.out.println("9. Exit");
+        System.out.print("Enter choice: ");
+
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Enter value: ");
+                li.addFirst(sc.nextInt());
+                break;
+
+            case 2:
+                System.out.print("Enter value: ");
+                li.addlast(sc.nextInt());
+                break;
+
+            case 3:
+                System.out.print("Enter position: ");
+                int pos = sc.nextInt();
+                System.out.print("Enter value: ");
+                int val = sc.nextInt();
+                li.add(pos, val);
+                break;
+
+            case 4:
+                System.out.println("Deleted: " + li.deleteFirst());
+                break;
+
+            case 5:
+                System.out.println("Deleted: " + li.deleteLast());
+                break;
+
+            case 6:
+                System.out.print("Enter position: ");
+                int dpos = sc.nextInt();
+                System.out.println("Deleted: " + li.delete(dpos));
+                break;
+
+            case 7:
+                System.out.print("Enter value to search: ");
+                int s = sc.nextInt();
+                System.out.println(li.search(s) ? "Found" : "Not Found");
+                break;
+
+            case 8:
+                li.print();
+                break;
+
+            case 9:
+                System.out.println("Exiting...");
+                sc.close();
+                return;
+
+            default:
+                System.out.println("Invalid choice!");
+        }
+    }
 }
